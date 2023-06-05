@@ -13,7 +13,7 @@ const PostSchema = new Schema({
 });
 
 PostSchema.virtual("url").get(function () {
-  return `/blog/post/${this._id}`;
+  return `/post/${this._id}`;
 });
 
 // Export model

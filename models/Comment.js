@@ -11,7 +11,7 @@ const CommentSchema = new Schema({
 })
 
 PostSchema.virtual("url").get(function () {
-  return `/blog/comment/${this._id}`;
+  return `/comment/${this._id}`;
 });
 
 module.exports = mongoose.model("Comment", CommentSchema);
