@@ -7,5 +7,16 @@ exports.new_post = asyncHandler(async (req, res, next) => {
 
 exports.posts_get = asyncHandler(async (req, res, next) => {
   let posts = Post.find({}).populate("comments").populate("author").exec();
-  res.json({"posts": posts});
+  res.json({posts: posts});
+});
+
+exports.post_get = asyncHandler(async (req, res, next) => {
+  let post = Post.find({_id: req.params.id}).populate("comments").populate("author").exec();
+  res.json({post: post});
+});
+
+//Update post
+exports.post_put = asyncHandler(async (req, res, next) => {
+  Post.findByIdAndUpdate(req.params.id, {title: req.body.title, text: req.body.text}).exec();
+  res.json({"Post id": req.params.id, "New Title": req.body.title, "New Text": req.body.text});
 });
