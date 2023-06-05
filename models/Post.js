@@ -8,7 +8,7 @@ const PostSchema = new Schema({
   text: { type: String, required: true },
   timestamp: { type: Date, default: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT) },
   image_url: { type: String },
-  comments: [{ type: Schema.types.ObjectId, ref: "Comment" }],
+  comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
   published: { type: Boolean, default: false }
 });
 

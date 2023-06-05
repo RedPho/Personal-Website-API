@@ -10,7 +10,7 @@ const CommentSchema = new Schema({
   timestamp: { type: Date, default: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT) },
 })
 
-PostSchema.virtual("url").get(function () {
+CommentSchema.virtual("url").get(function () {
   return `/comment/${this._id}`;
 });
 
